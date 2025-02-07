@@ -1,1 +1,1 @@
-"# stealth" 
+# stealth

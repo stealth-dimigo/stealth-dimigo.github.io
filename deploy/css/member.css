@@ -120,11 +120,17 @@ section.memberSection > div > h1 {
     gap: 2px;
 }
 
-.member-card .member-profile {
+.member-card .member-info .member-description {
+    color: var(--gray-color2);
+    font-size: 16px;
+    font-weight: lighter;
+    margin-top: 4px;
+}
+/* .member-card .member-profile {
     display: flex;
     flex-direction: row;
     gap: 10px;
-}
+} */
 
 .member-card .member-info .member-category li {
     color: var(--gray-color2);
@@ -138,6 +144,7 @@ section.memberSection > div > h1 {
 .member-card .member-contact {
     display: flex;
     margin: 0 auto;
+    gap: 10px;
 }
 
 .member-card .member-contact img {

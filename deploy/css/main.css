@@ -1,7 +1,8 @@
 /* settings */
 
 :root {
-    --bg-color: #282C33;
+    --bg-color: #181C23;
+    /* --bg-color: #282C33; */
     --bg-color2: #484C53;
     --bg-color3: #888C93;
     --bg-color4: #a8aCb3;
@@ -10,13 +11,6 @@
     --gray-color: #ABB2BF;
     --gray-color2: #7B828F;
     --gray-color3: #4B525F;
-}
-
-:root {
-    --bg-color: #282C33;
-    --bg-color2: #484C53;
-    --primary-color: #C778DD;
-    --gray-color: #ABB2BF;
 }
 
 html, body {
