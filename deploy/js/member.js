@@ -94,6 +94,7 @@ class MemberCard extends HTMLElement {
 </div>
 <div class="member-contact">
 ${snsList.join('')}
+<span>&nbsp;</span>
 </div>
 </div>`;
     }
