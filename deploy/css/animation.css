@@ -1,0 +1,115 @@
+/* default */
+
+.animation_wrap {
+    overflow: hidden;
+}
+
+@keyframes enterAnimationLogo {
+    0% {
+        fill: var(--bg-color);
+        filter: drop-shadow(5px 5px 5px #00c);
+    }
+
+    50% {
+        fill: var(--bg-color);
+    }
+
+    100% {
+        fill: white;
+        filter: drop-shadow(5px 5px 5px var(--primary-color));
+        animation: paused;
+    }
+}
+@keyframes enterAnimationElement {
+    0% {
+        color: white;
+        background-color: white;
+    }
+    
+    50%{
+        color: white;
+        background-color: #ccc;
+    }
+    
+    100% {
+        background-color: var(--bg-color);
+        overflow:visible;
+    }
+}
+.enterAnimationLogo {
+    /* animation: enterAnimationLogo 1.8s ease-in-out forwards; */
+    animation: enterAnimationLogo 1.8s ease-in-out;
+}
+.enterAnimationElement {
+    animation: enterAnimationElement 1.8s ease-in-out;
+}
+
+/* animation */
+
+
+/* cube animtaion */
+
+@keyframes spin {
+    from {
+        transform: rotateY(0) rotateX(0);
+    }
+
+    to {
+        transform: rotateY(-360deg) rotateX(360deg);
+    }
+}
+
+/* scroll animation */
+
+.scroll_wrap {
+    overflow: hidden;
+}
+
+.scroll_on {
+    /* padding: 50px 0; */
+    /* text-align: center; */
+    opacity: 0;
+    transition: all 0.9s;
+}
+
+.scroll_active {
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+}
+
+.scroll_top {
+    transform: translate(0, -50px);
+}
+
+.scroll_bottom {
+    transform: translate(0, 50px);
+}
+
+.scroll_left {
+    transform: translate(-50px, 0);
+}
+
+.scroll_right {
+    transform: translate(50px, 0);
+}
+
+/* member-card animation */
+
+@keyframes animation_member_card {
+    from {
+        transform: none;
+    }
+    to {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes animation_member_link_hover {
+    0% {
+        backdrop-filter: none;
+        border-radius: 5px;
+    }
+    40%,100% {
+        backdrop-filter: blur(12px);
+    }
+}

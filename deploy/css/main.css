@@ -1,0 +1,266 @@
+/* settings */
+
+:root {
+    --bg-color: #282C33;
+    --bg-color2: #484C53;
+    --bg-color3: #888C93;
+    --bg-color4: #a8aCb3;
+    --bg-color5: #ecf0f3;
+    --primary-color: #C778DD;
+    --gray-color: #ABB2BF;
+    --gray-color2: #7B828F;
+    --gray-color3: #4B525F;
+}
+
+:root {
+    --bg-color: #282C33;
+    --bg-color2: #484C53;
+    --primary-color: #C778DD;
+    --gray-color: #ABB2BF;
+}
+
+html, body {
+    width: 100%;
+    /* height: 100%; */
+
+    color: white;
+    background-color: var(--bg-color);
+    /* overflow: hidden; */
+
+    font-family: "SUIT", serif, initial;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* media navigation */
+
+#media {
+    position: absolute;
+    left: 17px;
+    width: 32px;
+    height: 311px;
+    text-align: center;
+    color: var(--gray-color);
+    user-select: none;
+}
+
+#media div.line {
+    height: 191px;
+    width: 0;
+    border: 1px solid var(--gray-color);
+    margin: 0 auto;
+}
+
+#media .social .icon {
+    width: 28px;
+    height: 28px;
+    margin-top: 8px;
+    filter: invert(100%) drop-shadow(0 0 5px var(--primary-color));
+}
+
+/* header */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 1024px;
+    height: 61px;
+    padding-top: 32px;
+    z-index: 99999;
+}
+
+#header_fixer {
+    height: 93px;
+}
+
+header div.cateBox {
+    display: flex;
+    gap: 10px;
+}
+
+header div.logoBox {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 200px;
+    height: 22px;
+    color: white;
+}
+
+header div.logoBox span {
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: 900;
+}
+
+header .logo {
+    width: 40px;
+    height: 40px;
+    /* filter: invert(100%); */
+}
+
+header div.category {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+header div.category div {
+    width: 87px;
+    height: 21px;
+    font-size: 16px;
+}
+
+header div.category a:hover {
+    text-decoration: underline white;
+    text-underline-offset: 5px;
+}
+
+header div.category div.circle {
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background-color: greenyellow;
+    box-shadow: 0 0 0px 1px white;
+}
+
+header .cube_wrapper {
+    perspective: 800;
+    margin-left: 40px;
+}
+
+header .cube {
+    position: relative;
+    top: 0px;
+    margin: 0 auto;
+    height: 24px;
+    width: 24px;
+
+    animation: spin 5s infinite linear;
+    transform-style: preserve-3d;
+}
+
+header .cube>div {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    /* border: 1px solid var(--primary-color); */
+    border: 1px solid white;
+    opacity: .8;
+}
+
+header .cube>div:hover {
+    opacity: 1;
+    transition: opacity .3s linear;
+}
+
+header .cube .one {
+    transform: rotateX(90deg) translateZ(12px);
+    /* background-color: #E3493B; */
+    background-color: inherit;
+}
+
+header .cube .two {
+    transform: translateZ(12px);
+    /* background-color: #23B5AF; */
+    background-color: inherit;
+}
+
+header .cube .three {
+    transform: rotateY(90deg) translateZ(12px);
+    /* background-color: #E8487F; */
+    background-color: inherit;
+}
+
+header .cube .four {
+    transform: rotateY(180deg) translateZ(12px);
+    /* background-color: #28B78D; */
+    background-color: inherit;
+}
+
+header .cube .five {
+    transform: rotateY(-90deg) translateZ(12px);
+    /* background-color: #FEEB51; */
+    background-color: inherit;
+}
+
+header .cube .six {
+    transform: rotateX(-90deg) translateZ(12px);
+    /* background-color: #FF5B00; */
+    background-color: inherit;
+}
+
+/* main */
+
+main {
+    padding-top: 91px;
+}
+
+/* section */
+
+section {
+    width: 1024px;
+    min-height: 620px;
+    margin: 0 auto;
+    margin-bottom: 50px !important; /* margin: 0 auth로 덮어쓰여지는 것 방지 */
+}
+
+section > div {
+    font-size: 24px;
+    font-weight: 700;
+    /* margin: 50px; */
+}
+
+/* footer */
+
+footer {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    bottom: 0;
+    background-color: var(--bg-color2);
+}
+
+footer > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1025px;
+    height: 124px;
+}
+
+footer .contact {
+    display: flex;
+    justify-content: space-between;
+}
+footer .contact .info > div {
+    height: 36px;
+}
+footer .contact .info .logo {
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    /* filter: invert(100%); */
+}
+
+footer .contact .info span {
+    font-size: 20px;
+}
+footer .contact .info span.email {
+    color: var(--gray-color);
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+footer .contact .media .icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
+}

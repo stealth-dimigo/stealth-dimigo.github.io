@@ -1,0 +1,146 @@
+/* memberSection */
+
+section.memberSection {
+
+}
+
+section.memberSection > div > h1 {
+    margin-bottom: 20px;
+}
+
+/* members */
+
+.members {
+    display: grid;
+    grid-template-columns: 240px 240px 240px 240px;
+    grid-template-rows: 380px 380px;
+    gap: 30px;
+}
+
+/* member-card */
+
+.member-card {
+    width: 240px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 5%;
+    background-color: var(--bg-color2);
+    overflow: hidden;
+    background-color: #ecf0f3;
+    color: black;
+    box-shadow: 0px 0px 3px #ffffff,
+               0px 0px 3px #ceced1;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+}
+
+.member-card:hover {
+    box-shadow: 0 0 20px 2px var(--primary-color);
+    animation: animation_member_card .2s ease forwards;
+}
+
+.member-card .member-img-box {
+    position: relative;
+    height: 50%;
+    width: 100%;
+}
+
+.member-card .member-img-box:hover {
+    transition: opacity .4s;
+    opacity: 0.88;
+}
+
+.member-card .member-img-box .member-link {
+    width: 160px !important;
+    height: 32px;
+    line-height: 32px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 300;
+    color: #fff !important;
+    opacity: 0;
+    border-radius: 5px !important;
+}
+
+.member-card .member-img-box:hover > .member-link {
+    opacity: 1 !important;
+    animation: animation_member_link_hover 0.8s linear forwards;
+} 
+
+.member-card .member-img-box:hover > .member-link a, .member-card .member-img-box:hover > .member-link p {
+    z-index: 9999;
+}
+
+.member-card .member-img-box .member-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 5px 1px var(--bg-color2);
+    margin-bottom: 10px;
+    vertical-align: middle;
+}
+
+
+.member-card .member-info {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 6px;
+}
+
+.member-card .member-info .member-name {
+}
+
+.member-card:hover .member-info .member-nickname {
+    color: var(--primary-color);
+
+}
+
+.member-card .member-info .member-nickname {
+    color: var(--gray-color3);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.member-card .member-info .member-category {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+
+.member-card .member-profile {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.member-card .member-info .member-category li {
+    color: var(--gray-color2);
+    font-size: 14px;
+}
+
+.member-card .member-info .member-category li:not(:last-child)::after {
+    content: '|';
+}
+
+.member-card .member-contact {
+    display: flex;
+    margin: 0 auto;
+}
+
+.member-card .member-contact img {
+    width: 20px;
+    height: 20px;
+}
