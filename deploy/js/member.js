@@ -57,11 +57,11 @@ class MemberCard extends HTMLElement {
 
     connectedCallback() {
         let snsList = [];
-        let name = this.getAttribute('name') ?? '박도원';
-        let nickname = this.getAttribute('nickname') ?? 'pdw0412';
-        let img = this.getAttribute('img') ?? '23_parkjinwan.png';
-        let category = this.getAttribute('category') ?? 'Pwn,Rev';
-        let link = this.getAttribute('link') ?? 'https://dreamhack.io/users/54226/';
+        let name = this.getAttribute('name') ?? '김테스트';
+        let nickname = this.getAttribute('nickname') ?? 'test1234';
+        let img = this.getAttribute('img') ?? 'default.svg';
+        let category = this.getAttribute('category') ?? 'misc';
+        let link = this.getAttribute('link') ?? 'about:blank';
 
         this.getAttributeNames().forEach((name) => {
             if (!name.startsWith('sns')) return;
@@ -94,7 +94,7 @@ class MemberCard extends HTMLElement {
 </div>
 <div class="member-contact">
 ${snsList.join('')}
-<span>&nbsp;</span>
+${snsList.length == 0 ? "<span>&nbsp;</span>" : ""}
 </div>
 </div>`;
     }
