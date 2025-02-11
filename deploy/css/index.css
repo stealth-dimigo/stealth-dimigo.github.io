@@ -8,15 +8,19 @@
 }
 
 #first #mainLogo {
-    width: 600px;
     height: 600px;
     margin: 0 auto;
     filter: drop-shadow(5px 5px 5px var(--primary-color));
 }
 
-/* introduce section */
-
-#second {
-    /* opacity: 0; */
-    background-color: blue;
+#second > div {
+    width: 600px;
+    height: 100px;
+    margin: 40px 50px;
 }
+
+#third > div {
+    margin: 50px;
+}
+
+/* introduce section */

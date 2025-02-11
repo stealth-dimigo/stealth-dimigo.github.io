@@ -71,6 +71,7 @@ window.onload = () => {
 
 window.onpageshow = function (event) {
     // history.back() checker
+
     let isBack = event.persisted || (window.performance && window.performance.navigation.type == 2);
     if (isBack || (window.scrollY > 0)) {
         Array.from(document.querySelectorAll('.enterAnimationLogo')).forEach(ele => {

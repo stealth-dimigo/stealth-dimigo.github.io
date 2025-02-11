@@ -23,8 +23,11 @@ section > div > h1 {
 }
 
 .awards li {
-    margin-bottom: 12px;
     padding: 10px;
+}
+
+.awards li:not(:last-child) {
+    margin-bottom: 12px;
 }
 
 .awards li span.names {
