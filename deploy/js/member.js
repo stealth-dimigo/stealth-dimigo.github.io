@@ -39,7 +39,6 @@ const SNS = {
 }
 
 function snsElement(type, val) {
-    console.log(type, val)
     let link, icon;
     if (type in SNS) {
         link = SNS[type].link.replace('{}', val);

@@ -52,7 +52,6 @@ window.onload = () => {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                console.log(entry.intersectionRatio)
                 setTimeout(() => {
                     entry.target.classList.add('scroll_active');
 
