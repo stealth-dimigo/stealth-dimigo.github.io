@@ -1,7 +1,9 @@
 /* memberSection */
 
-section.memberSection {
-
+section.memberSection > div {
+    font-size: 24px;
+    font-weight: 700;
+    /* margin: 50px; */
 }
 
 section.memberSection > div > h1 {

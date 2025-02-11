@@ -1,0 +1,17 @@
+.photo-wall > div > h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.photo-wall div.photo {
+    width: 500px;
+    margin-bottom: 20px;
+}
+
+.photo-wall div.photo h2 {
+    margin-bottom: 10px;
+}
+.photo-wall div.photo img {
+    width: 100%;
+}
