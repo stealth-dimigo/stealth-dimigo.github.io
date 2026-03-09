@@ -48,7 +48,11 @@
         max-width: 100%;
         transform-style: preserve-3d;
         will-change: transform;
-        transition: transform 180ms ease, filter 180ms ease;
+        transition:
+          transform 180ms ease,
+          filter 180ms ease;
+        filter: drop-shadow(0 0 18px rgba(131, 92, 255, 0.45))
+          drop-shadow(0 0 42px rgba(131, 92, 255, 0.18));
       }
     </style>
   </head>
@@ -203,6 +207,10 @@
     <script>
       document.querySelectorAll(".tilt-box").forEach((box) => {
         const svg = box.querySelector(".tilt-svg");
+        const baseFilter =
+          "drop-shadow(0 0 18px rgba(131, 92, 255, 0.45)) drop-shadow(0 0 42px rgba(131, 92, 255, 0.18))";
+        const activeFilter =
+          "drop-shadow(0 0 20px rgba(131, 92, 255, 0.58)) drop-shadow(0 0 48px rgba(131, 92, 255, 0.24)) drop-shadow(0 20px 30px rgba(0,0,0,0.22))";
         if (!svg) {
           return;
         }
@@ -219,14 +227,13 @@
           const rotateY = offsetX * strength;
           const rotateX = -offsetY * strength;
 
-          svg.style.transform =
-            `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-          svg.style.filter = "drop-shadow(0 20px 30px rgba(0,0,0,0.25))";
+          svg.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+          svg.style.filter = activeFilter;
         });
 
         box.addEventListener("pointerleave", () => {
           svg.style.transform = "";
-          svg.style.filter = "";
+          svg.style.filter = baseFilter;
         });
       });
     </script>
