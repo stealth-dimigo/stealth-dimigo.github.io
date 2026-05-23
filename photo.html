@@ -393,56 +393,59 @@
         const photoContainer = document.getElementById("photoContainer");
 
         const photos = [
-            "2024_4_13.jpg",
-            "2024_6_10.jpg",
-            "2025_4_10.jpg",
-            "2025_DEFCON.jpg",
+            "2026_4_7.jpg",
+            "dothack.jpg",
+            "dothack_bpak.jpg",
+            "HCTF.jpg",
+            "Holy@@@.jpg",
             "2025_IT세미나_김여름.jpg",
             "2025_IT세미나_김준원.jpg",
             "2025_IT세미나_문정빈.jpg",
             "2025_IT세미나_박성현.jpg",
             "2025_IT세미나_박찬완.jpg",
             "2025_IT세미나_이호연.jpg",
-            "2025_입설-pandas.jpg",
-            "HCTF.jpg",
-            "HSPACE.jpg",
-            "Holy@@@.jpg",
-            "dothack.jpg",
-            "dothack_bpak.jpg",
-            "dothack_stealth.jpg",
             "eleccon.jpg",
-            "ssd_all.jpg",
             "소고기.jpg",
+            "ssd_all.jpg",
+            "HSPACE.jpg",
+            "dothack_stealth.jpg",
+            "코게.jpg",
             "입설.jpg",
-            "코게.jpg"
+            "2025_입설-pandas.jpg",
+            "2025_DEFCON.jpg",
+            "2025_4_10.jpg",
+            "2024_6_10.jpg",
+            "2024_4_13.jpg"
         ];
+
 
         function formatTitle(filename) {
             const name = filename.replace(/\.[^/.]+$/, "");
 
             const titleMap = {
-                "2024_4_13": "2024년 4월 13일",
-                "2024_6_10": "2024년 6월 10일",
-                "2025_4_10": "2025년 4월 10일",
-                "2025_DEFCON": "2025 DEFCON",
+                "2026_4_7": "2026년 4월 7일 - 25기 신입생들과 함께",
+                "dothack": "2026 DotHack 컨퍼런스 방문",
+                "dothack_bpak": "박세준 대표님과의 사진",
+                "HCTF": "2026 HCTF - 한양대학교",
+                "Holy@@@": "2025 HolyShield 2위",
                 "2025_IT세미나_김여름": "IT 세미나 - 김여름",
                 "2025_IT세미나_김준원": "IT 세미나 - 김준원",
                 "2025_IT세미나_문정빈": "IT 세미나 - 문정빈",
                 "2025_IT세미나_박성현": "IT 세미나 - 박성현",
                 "2025_IT세미나_박찬완": "IT 세미나 - 박찬완",
                 "2025_IT세미나_이호연": "IT 세미나 - 이호연",
-                "2025_입설-pandas": "입설 - pandas",
-                "HCTF": "HCTF",
-                "HSPACE": "HSPACE",
-                "Holy@@@": "Holy @@@",
-                "dothack": "DotHack",
-                "dothack_bpak": "DotHack - BPAK",
-                "dothack_stealth": "DotHack - STEALTH",
-                "eleccon": "ElecCon",
-                "ssd_all": "SSD 전체 사진",
-                "소고기": "소고기",
-                "입설": "입설",
-                "코게": "코드게이트"
+                "eleccon": "한국전력공사 Eleccon 고등부 우승",
+                "소고기": "Stealth 소고기 회식",
+                "ssd_all": "SSD CTF 단체 사진",
+                "HSPACE": "HSPACE 방문, 선배들과의 사진",
+                "dothack_stealth": "2025 DotHack 컨퍼런스 방문",
+                "코게": "Codegate 대회 참여, 컨퍼런스 방문",
+                "입설": "2025 입학설명회 2",
+                "2025_입설-pandas": "2025 입학설명회 1",
+                "2025_DEFCON": "2025 DEFCON",
+                "2025_4_10": "2025년 4월 10일 - 24기 신입생들과 함께",
+                "2024_6_10": "2024년 6월 10일 - 졸업생 선배님들과 함께",
+                "2024_4_13": "2024년 4월 13일 - 23기 신입생들과 함께"
             };
 
             return titleMap[name] || name
