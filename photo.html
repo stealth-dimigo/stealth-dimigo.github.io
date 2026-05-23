@@ -7,7 +7,6 @@
     <title>Stealth</title>
 
     <!-- SEO OpenGraph -->
-
     <meta property="og:url" content="https://goldleo1.github.io/stealth/deploy/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Stealth, KDMHS, the youth hacking club" />
@@ -19,17 +18,17 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/photo.css">
     <link rel="stylesheet" href="./css/animation.css">
-    <!-- SUIT font : https://sun.fo/suit/ -->
+
+    <!-- SUIT font -->
     <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
+
     <!-- Fira font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <!-- <script src="./js/award.js"></script> -->
 </head>
-
 
 <body>
     <nav id="media">
@@ -37,18 +36,22 @@
             <!-- virtual line -->
         </div>
         <div class="social">
-            <a href="https://www.instagram.com/stealth_dimigo/"><img src="./images/icons/instagram-black.png" alt=""
-                    class="icon"></a>
+            <a href="https://www.instagram.com/stealth_dimigo/">
+                <img src="./images/icons/instagram-black.png" alt="" class="icon">
+            </a>
         </div>
         <div class="social">
-            <a href="https://www.facebook.com/stealthisbest/"><img src="./images/icons/facebook-black.png" alt=""
-                    class="icon"></a>
+            <a href="https://www.facebook.com/stealthisbest/">
+                <img src="./images/icons/facebook-black.png" alt="" class="icon">
+            </a>
         </div>
         <div class="social">
-            <a href="https://github.com/stealth-dimigo"><img src="./images/icons/github-black.png" alt=""
-                    class="icon"></a>
+            <a href="https://github.com/stealth-dimigo">
+                <img src="./images/icons/github-black.png" alt="" class="icon">
+            </a>
         </div>
     </nav>
+
     <header>
         <a href="index.html">
             <div class="logoBox">
@@ -79,8 +82,8 @@
                     </a>
                 </div>
             </div>
+
             <div class="cube_wrapper">
-                <!-- copy from https://codepen.io/rauldronca/pen/qNPPXr -->
                 <a href="cube.html">
                     <div class="cube">
                         <div class="one"></div>
@@ -94,30 +97,227 @@
             </div>
         </div>
     </header>
+
     <style>
-        
+        main {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        main > section:first-child {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        main > section:first-child img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.45);
+        }
+
+        main::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 28%),
+                radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.05), transparent 32%),
+                linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.86));
+            pointer-events: none;
+        }
+
+        .photo-wall {
+            width: 100%;
+            padding: 150px 7vw 120px;
+            box-sizing: border-box;
+        }
+
+        .photo-wall > div {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+
+        .photo-wall > div::before {
+            content: "Photo Archive";
+            grid-column: 1 / -1;
+            display: block;
+            margin-bottom: -8px;
+            font-family: "Fira Code", monospace;
+            font-size: 15px;
+            letter-spacing: 0.18em;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+        }
+
+        .photo-wall > div::after {
+            content: "Stealth의 순간들을 기록한 사진 페이지";
+            grid-column: 1 / -1;
+            display: block;
+            margin-bottom: 24px;
+            font-family: "SUIT", sans-serif;
+            font-size: clamp(30px, 5vw, 58px);
+            font-weight: 800;
+            line-height: 1.1;
+            color: #fff;
+            text-shadow: 0 0 24px rgba(255, 255, 255, 0.18);
+        }
+
+        .photo {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: auto;
+            margin-bottom: 0;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 22px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.075);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow:
+                0 18px 54px rgba(0, 0, 0, 0.38),
+                inset 0 1px 0 rgba(255, 255, 255, 0.16);
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+        }
+
+        .photo:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.34);
+            box-shadow:
+                0 26px 70px rgba(0, 0, 0, 0.52),
+                0 0 34px rgba(255, 255, 255, 0.07),
+                inset 0 1px 0 rgba(255, 255, 255, 0.24);
+        }
+
+        .photo h2 {
+            order: 2;
+            position: relative;
+            z-index: 2;
+            margin: 0;
+            padding: 18px 20px 22px;
+            min-height: 84px;
+            box-sizing: border-box;
+            font-family: "SUIT", sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.35;
+            color: #fff;
+            word-break: keep-all;
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.035)),
+                rgba(0, 0, 0, 0.28);
+        }
+
+        .photo h2::before {
+            content: "PHOTO";
+            display: block;
+            width: fit-content;
+            margin-bottom: 9px;
+            padding: 5px 9px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 999px;
+            font-family: "Fira Code", monospace;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 0, 0, 0.22);
+        }
+
+        .photo img {
+            order: 1;
+            width: 100%;
+            height: 230px;
+            min-height: 0;
+            object-fit: cover;
+            display: block;
+            filter: saturate(1.06) contrast(1.04);
+            transition:
+                transform 0.55s ease,
+                filter 0.55s ease;
+        }
+
+        .photo:hover img {
+            transform: scale(1.045);
+            filter: saturate(1.16) contrast(1.08) brightness(1.04);
+        }
+
+        .photo::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.22));
+        }
+
+        .photo-empty,
+        .photo-loading {
+            grid-column: 1 / -1;
+            padding: 60px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 22px;
+            color: rgba(255, 255, 255, 0.75);
+            font-family: "SUIT", sans-serif;
+            font-size: 18px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.075);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        @media (max-width: 1000px) {
+            .photo-wall {
+                padding: 130px 5vw 100px;
+            }
+
+            .photo-wall > div {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .photo-wall {
+                padding: 120px 22px 90px;
+            }
+
+            .photo-wall > div {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .photo img {
+                height: 240px;
+            }
+
+            .photo h2 {
+                font-size: 16px;
+                padding: 16px 18px 20px;
+            }
+        }
     </style>
+
     <main>
         <section>
             <div>
                 <img src="./images/icons/stelath-bg.png" alt="">
             </div>
         </section>
+
         <section class="photo-wall">
-            <div>
-                <!-- <h1>Photo Wall</h1> -->
-                <div id="2025_4_10" class="photo">
-                    <h2>2025년 4월 10일 - 24기 신입생들과</h2>
-                    <img src="./images/photos/2025_4_10.jpg" alt="">
-                </div>
-                <div id="2024_6_10" class="photo">
-                    <h2>2024년 6월 10일 - 🎓 졸업생 선배님들과</h2>
-                    <img src="./images/photos/2024_6_10.jpg" alt="">
-                </div>
-                <div id="2024_4_13" class="photo">
-                    <h2>2024년 4월 13일 - 23기 신입생들과 📷</h2>
-                    <img src="./images/photos/2024_4_13.jpg" alt="">
-                </div>
+            <div id="photoContainer">
+                <p class="photo-loading">사진을 불러오는 중입니다.</p>
             </div>
         </section>
     </main>
@@ -128,30 +328,144 @@
                 <div class="info">
                     <div>
                         <img src="./images/icons/stealth-white.svg" alt="" class="logo">
-                        <span class="name">Stealth</span><span class="email">
+                        <span class="name">Stealth</span>
+                        <span class="email">
                             <a href="mailto:stealth.dimigo@gmail.com">stealth.dimigo@gmail.com</a>
                         </span>
                     </div>
                     <p class="description">Show me Your Hack ON!</p>
                 </div>
+
                 <div class="media">
                     <div class="social">
-                        <a href="https://www.instagram.com/stealth_dimigo/"><img
-                                src="./images/icons/instagram-black.png" alt="" class="icon"></a>
+                        <a href="https://www.instagram.com/stealth_dimigo/">
+                            <img src="./images/icons/instagram-black.png" alt="" class="icon">
+                        </a>
                     </div>
                     <div class="social">
-                        <a href="https://www.facebook.com/stealthisbest/"><img src="./images/icons/facebook-black.png"
-                                alt="" class="icon"></a>
+                        <a href="https://www.facebook.com/stealthisbest/">
+                            <img src="./images/icons/facebook-black.png" alt="" class="icon">
+                        </a>
                     </div>
                     <div class="social">
-                        <a href="https://github.com/stealth-dimigo"><img src="./images/icons/github-black.png" alt=""
-                                class="icon"></a>
+                        <a href="https://github.com/stealth-dimigo">
+                            <img src="./images/icons/github-black.png" alt="" class="icon">
+                        </a>
                     </div>
                 </div>
             </div>
+
             <p id="copyright">© Copyright 2025. Made by @goldleo1</p>
         </div>
     </footer>
+
+    <script>
+        const GITHUB_OWNER = "goldleo1";
+        const GITHUB_REPO = "stealth";
+        const GITHUB_BRANCH = "main";
+
+        /*
+            현재 사이트 기준 사진 경로는 ./images/photos 입니다.
+            GitHub 저장소 구조에 따라 아래 두 경로를 순서대로 시도합니다.
+
+            1. deploy/images/photos
+               - GitHub Pages가 /deploy/ 폴더에서 배포되는 구조일 때
+
+            2. images/photos
+               - 저장소 루트에 images/photos가 바로 있을 때
+        */
+        const PHOTO_FOLDER_CANDIDATES = [
+            "deploy/images/photos",
+            "images/photos"
+        ];
+
+        const photoContainer = document.getElementById("photoContainer");
+
+        function formatTitle(filename) {
+            return filename
+                .replace(/\.[^/.]+$/, "")
+                .replace(/[_-]/g, " ")
+                .replace(/\s+/g, " ")
+                .trim();
+        }
+
+        function createPhotoCard(file) {
+            const photoCard = document.createElement("div");
+            photoCard.className = "photo";
+
+            const img = document.createElement("img");
+            img.src = file.download_url;
+            img.alt = formatTitle(file.name);
+            img.loading = "lazy";
+
+            const title = document.createElement("h2");
+            title.textContent = formatTitle(file.name);
+
+            photoCard.appendChild(img);
+            photoCard.appendChild(title);
+
+            return photoCard;
+        }
+
+        async function fetchGithubFolder(folderPath) {
+            const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${folderPath}?ref=${GITHUB_BRANCH}`;
+            const response = await fetch(apiUrl);
+
+            if (!response.ok) {
+                throw new Error(`${folderPath} 경로를 불러오지 못했습니다.`);
+            }
+
+            return await response.json();
+        }
+
+        async function loadPhotosFromGithub() {
+            photoContainer.innerHTML = `<p class="photo-loading">사진을 불러오는 중입니다.</p>`;
+
+            let files = null;
+
+            for (const folderPath of PHOTO_FOLDER_CANDIDATES) {
+                try {
+                    files = await fetchGithubFolder(folderPath);
+                    break;
+                } catch (error) {
+                    console.warn(error.message);
+                }
+            }
+
+            if (!files) {
+                photoContainer.innerHTML = `
+                    <p class="photo-empty">
+                        GitHub에서 사진 폴더를 찾지 못했습니다.
+                    </p>
+                `;
+                return;
+            }
+
+            const imageFiles = files
+                .filter(file => {
+                    return file.type === "file" &&
+                        /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name);
+                })
+                .sort((a, b) => b.name.localeCompare(a.name));
+
+            if (imageFiles.length === 0) {
+                photoContainer.innerHTML = `
+                    <p class="photo-empty">
+                        아직 등록된 사진이 없습니다.
+                    </p>
+                `;
+                return;
+            }
+
+            photoContainer.innerHTML = "";
+
+            imageFiles.forEach(file => {
+                photoContainer.appendChild(createPhotoCard(file));
+            });
+        }
+
+        loadPhotosFromGithub();
+    </script>
 </body>
 
 </html>
