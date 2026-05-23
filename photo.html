@@ -359,113 +359,96 @@
         </div>
     </footer>
 
-    <script>
-        const GITHUB_OWNER = "goldleo1";
-        const GITHUB_REPO = "stealth";
-        const GITHUB_BRANCH = "main";
+<script>
+    const photoContainer = document.getElementById("photoContainer");
 
-        /*
-            현재 사이트 기준 사진 경로는 ./images/photos 입니다.
-            GitHub 저장소 구조에 따라 아래 두 경로를 순서대로 시도합니다.
+    const photos = [
+        "2024_4_13.jpg",
+        "2024_6_10.jpg",
+        "2025_4_10.jpg",
+        "2025_DEFCON.jpg",
+        "2025_IT세미나_김여름.jpg",
+        "2025_IT세미나_김준원.jpg",
+        "2025_IT세미나_문정빈.jpg",
+        "2025_IT세미나_박성현.jpg",
+        "2025_IT세미나_박찬완.jpg",
+        "2025_IT세미나_이호연.jpg",
+        "2025_입설-pandas.jpg",
+        "HCTF.jpg",
+        "HSPACE.jpg",
+        "Holy@@@.jpg",
+        "dothack.jpg",
+        "dothack_bpak.jpg",
+        "dothack_stealth.jpg",
+        "eleccon.jpg",
+        "ssd_all.jpg",
+        "소고기.jpg",
+        "입설.jpg",
+        "코게.jpg"
+    ];
 
-            1. deploy/images/photos
-               - GitHub Pages가 /deploy/ 폴더에서 배포되는 구조일 때
+    function formatTitle(filename) {
+        const name = filename.replace(/\.[^/.]+$/, "");
 
-            2. images/photos
-               - 저장소 루트에 images/photos가 바로 있을 때
-        */
-        const PHOTO_FOLDER_CANDIDATES = [
-            "deploy/images/photos",
-            "images/photos"
-        ];
+        const titleMap = {
+            "2024_4_13": "2024년 4월 13일",
+            "2024_6_10": "2024년 6월 10일",
+            "2025_4_10": "2025년 4월 10일",
+            "2025_DEFCON": "2025 DEFCON",
+            "2025_IT세미나_김여름": "2025 IT 세미나 - 김여름",
+            "2025_IT세미나_김준원": "2025 IT 세미나 - 김준원",
+            "2025_IT세미나_문정빈": "2025 IT 세미나 - 문정빈",
+            "2025_IT세미나_박성현": "2025 IT 세미나 - 박성현",
+            "2025_IT세미나_박찬완": "2025 IT 세미나 - 박찬완",
+            "2025_IT세미나_이호연": "2025 IT 세미나 - 이호연",
+            "2025_입설-pandas": "2025 입설 - pandas",
+            "HCTF": "HCTF",
+            "HSPACE": "HSPACE",
+            "Holy@@@": "Holy @@@",
+            "dothack": "DotHack",
+            "dothack_bpak": "DotHack - BPAK",
+            "dothack_stealth": "DotHack - STEALTH",
+            "eleccon": "ElecCon",
+            "ssd_all": "SSD 전체 사진",
+            "소고기": "소고기",
+            "입설": "입설",
+            "코게": "코드게이트"
+        };
 
-        const photoContainer = document.getElementById("photoContainer");
+        return titleMap[name] || name
+            .replace(/[_-]/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+    }
 
-        function formatTitle(filename) {
-            return filename
-                .replace(/\.[^/.]+$/, "")
-                .replace(/[_-]/g, " ")
-                .replace(/\s+/g, " ")
-                .trim();
-        }
+    function createPhotoCard(filename) {
+        const photoCard = document.createElement("div");
+        photoCard.className = "photo";
 
-        function createPhotoCard(file) {
-            const photoCard = document.createElement("div");
-            photoCard.className = "photo";
+        const img = document.createElement("img");
+        img.src = `./images/photos/${filename}`;
+        img.alt = formatTitle(filename);
+        img.loading = "lazy";
 
-            const img = document.createElement("img");
-            img.src = file.download_url;
-            img.alt = formatTitle(file.name);
-            img.loading = "lazy";
+        const title = document.createElement("h2");
+        title.textContent = formatTitle(filename);
 
-            const title = document.createElement("h2");
-            title.textContent = formatTitle(file.name);
+        photoCard.appendChild(img);
+        photoCard.appendChild(title);
 
-            photoCard.appendChild(img);
-            photoCard.appendChild(title);
+        return photoCard;
+    }
 
-            return photoCard;
-        }
+    function loadPhotos() {
+        photoContainer.innerHTML = "";
 
-        async function fetchGithubFolder(folderPath) {
-            const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${folderPath}?ref=${GITHUB_BRANCH}`;
-            const response = await fetch(apiUrl);
+        photos.forEach(filename => {
+            photoContainer.appendChild(createPhotoCard(filename));
+        });
+    }
 
-            if (!response.ok) {
-                throw new Error(`${folderPath} 경로를 불러오지 못했습니다.`);
-            }
-
-            return await response.json();
-        }
-
-        async function loadPhotosFromGithub() {
-            photoContainer.innerHTML = `<p class="photo-loading">사진을 불러오는 중입니다.</p>`;
-
-            let files = null;
-
-            for (const folderPath of PHOTO_FOLDER_CANDIDATES) {
-                try {
-                    files = await fetchGithubFolder(folderPath);
-                    break;
-                } catch (error) {
-                    console.warn(error.message);
-                }
-            }
-
-            if (!files) {
-                photoContainer.innerHTML = `
-                    <p class="photo-empty">
-                        GitHub에서 사진 폴더를 찾지 못했습니다.
-                    </p>
-                `;
-                return;
-            }
-
-            const imageFiles = files
-                .filter(file => {
-                    return file.type === "file" &&
-                        /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name);
-                })
-                .sort((a, b) => b.name.localeCompare(a.name));
-
-            if (imageFiles.length === 0) {
-                photoContainer.innerHTML = `
-                    <p class="photo-empty">
-                        아직 등록된 사진이 없습니다.
-                    </p>
-                `;
-                return;
-            }
-
-            photoContainer.innerHTML = "";
-
-            imageFiles.forEach(file => {
-                photoContainer.appendChild(createPhotoCard(file));
-            });
-        }
-
-        loadPhotosFromGithub();
-    </script>
+    loadPhotos();
+</script>
 </body>
 
 </html>
